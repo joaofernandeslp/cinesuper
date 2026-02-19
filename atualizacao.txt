@@ -1,0 +1,24 @@
+=============================
+           TV
+=============================
+
+[x] Aumentar o tamanho dos textos no Who
+[ ] Verificar integridade em outras TVs
+    - Testado: TCL 65" OK
+    - Problema: TV 40" ficou zoado
+[x] Adicionar mais sombras no Sidebar
+    - Dá para ver textos/imagens por baixo
+[x] Adicionar derivação para atualização interno do app
+
+
+
+
+
+
+NOTA: Lembrar que toda atualização tem que subir o android/app/build.gradle
+=============================
+           WEB
+=============================
+
+
+AFTVnews: 4628736

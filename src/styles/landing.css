@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap");
+
+.cs-landing {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.cs-display {
+  font-family: "Unbounded", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.cs-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.cs-float {
+  animation: cs_float 8s ease-in-out infinite;
+}
+
+@keyframes cs_float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.cs-glow {
+  background: radial-gradient(800px 320px at 20% 10%, rgba(220, 38, 38, 0.25), transparent 60%);
+}
+
+@keyframes cs_marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes cs_marquee_rev {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.cs-track {
+  width: 200%;
+  display: flex;
+  gap: 0.75rem;
+  will-change: transform;
+  animation: cs_marquee 28s linear infinite;
+}
+
+.cs-track.rev {
+  animation-name: cs_marquee_rev;
+}
+
+.cs-pause:hover .cs-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- ✅ Tema do app depois do splash (evita tela branca) -->
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- importantíssimo: fundo preto enquanto o WebView carrega -->
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+    </style>
+
+    <!-- ✅ Splash Android 12+ correto (mostra logo + fundo) -->
+    <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@android:color/black</item>
+
+        <!-- Sua logo do splash -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
+
+        <!-- Remove “bolinha” branca atrás do ícone (muito comum) -->
+        <item name="windowSplashScreenIconBackgroundColor">@android:color/transparent</item>
+
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+        <item name="windowSplashScreenAnimationDuration">350</item>
+    </style>
+
+</resources>

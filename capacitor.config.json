@@ -1,0 +1,11 @@
+{
+  "appId": "com.cinesuper.tv",
+  "appName": "CineSuper",
+  "webDir": "dist",
+  "server": {
+    "allowNavigation": [
+      "spbtsxksvfpjgrhwsvtv.supabase.co",
+      "*.supabase.co"
+    ]
+  }
+}

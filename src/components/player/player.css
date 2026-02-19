@@ -1,0 +1,149 @@
+/* Player ocupa a tela toda (Netflix-like) */
+.cs-player-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
+
+/* Topbar overlay */
+.cs-topbar {
+  position: absolute;
+  z-index: 30;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.cs-topbar-btn {
+  pointer-events: auto;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.cs-topbar-title {
+  pointer-events: none;
+  color: rgba(255,255,255,.92);
+  font-weight: 600;
+  text-align: center;
+  max-width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Video.js: deixar progress e volume no vermelho */
+.cs-video .vjs-play-progress,
+.cs-video .vjs-volume-level {
+  background-color: #e50914; /* vermelho */
+}
+
+/* Botões custom: usa ícones simples via CSS */
+.cs-btn.vjs-button > .vjs-icon-placeholder:before {
+  font-size: 16px;
+}
+
+/* -10 / +10 */
+.cs-skipback .vjs-icon-placeholder:before { content: "↺10"; }
+.cs-skipfwd  .vjs-icon-placeholder:before { content: "↻10"; }
+
+/* Episódios / Próximo */
+.cs-episodes .vjs-icon-placeholder:before { content: "≡"; }
+.cs-next .vjs-icon-placeholder:before { content: "⏭"; }
+
+/* Drawer episódios */
+.cs-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 60;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cs-drawer {
+  width: min(420px, 92vw);
+  height: 100%;
+  background: #0b0b0b;
+  border-left: 1px solid rgba(255,255,255,.08);
+  padding: 14px;
+}
+
+.cs-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.cs-drawer-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cs-drawer-close {
+  background: transparent;
+  border: 0;
+  color: rgba(255,255,255,.8);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cs-drawer-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-ep {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px 1fr 36px;
+  gap: 10px;
+  align-items: center;
+  text-align: left;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cs-ep.is-active {
+  border-color: rgba(229,9,20,.65);
+  background: rgba(229,9,20,.12);
+}
+
+.cs-ep-num {
+  color: rgba(255,255,255,.7);
+  font-weight: 700;
+}
+
+.cs-ep-title {
+  color: rgba(255,255,255,.92);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cs-ep-sub {
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.cs-ep-right {
+  color: rgba(255,255,255,.85);
+  text-align: right;
+  font-size: 16px;
+}

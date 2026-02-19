@@ -1,0 +1,99 @@
+/* =========================
+   TV MODE (Capacitor / Android TV)
+   Ativa quando html tiver class "cs-tv"
+========================= */
+
+html.cs-tv,
+html.cs-tv body {
+  height: 100%;
+  background: #000;
+
+  /* mata qualquer scroll global (mesmo se index.css força overflow-y: scroll) */
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+}
+
+/* Tipografia global controlada por variável */
+html.cs-tv {
+  font-size: calc(16px * var(--tv-font, 1));
+}
+
+/* Canvas lógico 1920x1080 escalado para a tela */
+html.cs-tv #root {
+  width: var(--tv-base-w, 1920px);
+  height: var(--tv-base-h, 1080px);
+
+  transform-origin: 0 0;
+  transform: translate3d(var(--tv-offset-x, 0px), var(--tv-offset-y, 0px), 0)
+             scale3d(var(--tv-scale, 1), var(--tv-scale, 1), 1);
+
+  overflow: visible;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ✅ Safe area/padding SEM “explodir” no 4K:
+   como o #root é escalado, dividimos pelo --tv-scale para manter
+   o padding em pixels reais mais estável.
+*/
+html.cs-tv .tv-safe {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+
+  /* padding real ~52px (ajuste) */
+  padding: calc((52px * var(--tv-safe, 1)) / var(--tv-scale, 1));
+}
+
+/* Scroll interno (se precisar) — NÃO usar window scroll */
+html.cs-tv .tv-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background: transparent;
+}
+html.cs-tv .tv-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Legendas */
+html.cs-tv #cs-player-root video::cue {
+  font-size: calc(32px / var(--tv-scale, 1));
+}
+
+/* Foco */
+html.cs-tv :focus {
+  outline: none;
+}
+
+/* =========================
+   Qualidade / Nitidez / Performance
+========================= */
+
+/* Texto mais “crisp” */
+html.cs-tv body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* Evita “blur”/flicker em elementos transformados */
+html.cs-tv #root {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Imagens e vídeos com render mais firme */
+html.cs-tv img,
+html.cs-tv video {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Evita que blur/transparência deixem tudo “lavado” */
+html.cs-tv .tv-scroll {
+  overscroll-behavior: none;
+}

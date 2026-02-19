@@ -1,0 +1,41 @@
+@import "./tv.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+html, body { overflow-x: hidden; } /* ✅ evita barra horizontal */
+body { @apply bg-black text-white font-sans; }
+
+/* Estilo das legendas WebVTT */
+#cs-player-root video::cue {
+  color: #ffd84a;              /* amarelo “cinema” */
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.25;
+
+  /* sombra preta forte (melhor legibilidade) */
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.95),
+    2px 0 0 rgba(0,0,0,0.95),
+    -2px 0 0 rgba(0,0,0,0.95),
+    0 -2px 0 rgba(0,0,0,0.95),
+    2px 2px 0 rgba(0,0,0,0.95),
+    -2px 2px 0 rgba(0,0,0,0.95),
+    2px -2px 0 rgba(0,0,0,0.95),
+    -2px -2px 0 rgba(0,0,0,0.95);
+
+  /* opcional: um “box” sutil atrás do texto */
+  background: rgba(0, 0, 0, 0);
+  padding: 0.15em 0.35em;
+  border-radius: 0.25em;
+}
+
+/* evita layout shift ao aparecer scrollbar */
+html { scrollbar-gutter: center; }
+
+/* força sempre existir scrollbar vertical (Chrome/Edge/Firefox) */
+body { overflow-y: scroll; }

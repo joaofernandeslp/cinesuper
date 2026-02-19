@@ -1,0 +1,52 @@
+Mudancas realizadas (resumo por topicos)
+
+1. Segurança de PIN
+- Removido PIN em texto claro no cliente.
+- Preparado uso de hash no Supabase via RPC (set_profile_pin / verify_profile_pin).
+- UI de perfis atualizada para trocar/remover PIN com avisos.
+
+2. Player (web)
+- Legendas m3u8 agora processadas apenas quando o menu de legendas é aberto.
+- Adicionados aborts para evitar requests pendentes (thumbs e legendas).
+- Overlay de ajuda com atalhos (H/?), e atalho F para tela cheia.
+
+3. Calendário (web)
+- Filtro do calendário exibe apenas lançamentos futuros (datas passadas são excluídas).
+- Badge “Em breve” nos cards e na página de detalhes, com data quando disponível.
+
+4. Marketing/Config
+- Valores e links da landing movidos para config (env).
+- WhatsApp do contato agora vem de env (E164).
+- CSS da landing movido para arquivo dedicado.
+
+5. Login
+- Removida a opção “Lembre-se de mim” (não havia persistência real).
+
+6. Perfis
+- Componentes de UI extraídos para arquivo separado.
+- Validação de PIN ao ativar “exigir PIN” na área parental.
+
+7. Browse (Home)
+- Balanceado o número de títulos por gênero no home para evitar dominância de um gênero.
+- Coleções (Novidades/Em alta/etc.) agora limitam por gênero e pegam os mais recentes (created_at).
+- Distribuição por gênero agora considera múltiplos gêneros do título para evitar “sumir” Aventura/Fantasia.
+- Após as coleções, as rows de gênero ficam em ordem alfabética.
+
+8. Top 10 + Curtidas
+- Criado Top 10 no home (antes de Em alta).
+- Botão de curtir disponível nos cards e na página do título.
+- Top 10 mostra apenas Assistir/Mais informações (sem botão de curtir).
+- Layout do Top 10 atualizado para estilo “Netflix-like”.
+- Ajuste de altura e faixa lateral com “bordas” dos títulos.
+- Removido anel branco, posters laterais mais largos e hover com fade.
+- Clique nos títulos da direita troca o destaque (só “Mais informações” leva para a página).
+- Top 10: logo em maior qualidade, números com preenchimento, botões maiores e sinopse visível.
+- Pilhas laterais agora mostram itens anteriores à esquerda e próximos à direita.
+- Pilhas laterais padronizadas (largura uniforme) e logos em qualidade original.
+- Top 10: altura fixa para evitar “pulos”, stacks laterais limitadas e número com stroke mais nítido.
+- Número do Top ajustado (sem artefatos) e badge simples no mobile.
+- Número do Top agora tem área própria (sem sobrepor os posters).
+- Coluna direita agora some quando não há próximos títulos (sem faixa preta).
+- Botões na página de detalhes (série) agora ficam na mesma linha (sem quebrar “Voltar”).
+- Linha de botões em séries com padding extra para evitar corte no final.
+- Botões de séries compactados para caber na mesma linha (sem corte).
